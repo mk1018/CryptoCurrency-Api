@@ -9,7 +9,7 @@
             <input class="address-text-area" type="text" v-bind:value="address.address" />
             <!-- <textarea v-model="address.address" placeholder="add multiple lines"></textarea> -->
           </div>
-          <vue-qrcode v-if="address.address" :value="address.address" :options="option" tag="img" />
+          <vue-qrcode class="qrcode" v-if="address.address" :value="address.address" :options="option" tag="img" />
         </div>
       </div>
     </div>
@@ -37,8 +37,8 @@ export default {
         errorCorrectionLevel: "M",
         maskPattern: 0,
         margin: 5,
-        scale: 2,
-        width: 300,
+        scale: 1,
+        width: 500,
         color: {
           dark: "#000000FF",
           light: "#FFFFFFFF"

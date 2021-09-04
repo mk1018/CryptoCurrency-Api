@@ -7,10 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Address extends Model
 {
-    // use HasFactory;
+    use HasFactory;
 
     /**
-     * このポストの全コメント取得
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'user_id',
+        'blockchain_code',
+        'address',
+        'display'
+    ];
+
+    /**
+     * ブロックチェーンの情報取得
      */
     public function getBlockChainInfo()
     {

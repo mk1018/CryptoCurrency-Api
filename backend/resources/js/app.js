@@ -21,6 +21,7 @@ window.Vue = require('vue').default;
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('address-area-component', require('./components/AddressAreaComponent.vue').default);
+Vue.component('add-address-component', require('./components/AddAddressComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

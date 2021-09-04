@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::redirect('/', 'myAddress');
+
 Route::namespace('App\Http\Controllers')->group( function () {
-    Route::apiResource('/', 'TopController');
+    Route::apiResource('myAddress', 'TopController');
 });
