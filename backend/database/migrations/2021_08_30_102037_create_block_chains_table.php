@@ -17,6 +17,7 @@ class CreateBlockChainsTable extends Migration
             $table->string('code')->primary();
             $table->string('name');
             $table->string('symbol');
+            $table->string('image');
             $table->timestamps();
         });
     }
