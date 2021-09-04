@@ -30,5 +30,4 @@ class AddressService extends Service
             return $this->model::get();
         }
     }
-
 }

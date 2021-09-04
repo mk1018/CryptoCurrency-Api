@@ -21,6 +21,8 @@ class User extends Authenticatable implements JWTSubject
         'name',
         'email',
         'password',
+        'user_code',
+        'screen_name'
     ];
 
     /**
@@ -60,5 +62,13 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    /**
+     * アドレスの情報
+     */
+    public function getAddressInfo()
+    {
+        return $this->hasMany(Address::class);
     }
 }

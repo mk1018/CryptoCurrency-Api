@@ -18,5 +18,6 @@ Auth::routes();
 Route::redirect('/', 'myAddress');
 
 Route::namespace('App\Http\Controllers')->group( function () {
-    Route::apiResource('myAddress', 'MyAddressController');
+    Route::Resource('myAddress', 'MyAddressController');
+    Route::get('/publicAddress/{user_code}', 'PublicAddressController@index');
 });

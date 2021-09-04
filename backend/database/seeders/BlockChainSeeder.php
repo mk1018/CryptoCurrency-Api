@@ -14,15 +14,16 @@ class BlockChainSeeder extends Seeder
      */
     public function run()
     {
-        $this->add('btc', 'Bitcoin', 'BTC');
-        $this->add('eth', 'Ethereum', 'ETH');
+        $this->add('btc', 'Bitcoin', 'BTC', 'bitcoin.png');
+        $this->add('eth', 'Ethereum', 'ETH', 'ethereum.png');
     }
 
-    private function add($code, $name, $symbol){
+    private function add($code, $name, $symbol, $image){
         (new BlockChain([
             'code' => $code,
             'name' => $name,
-            'symbol' => $symbol
+            'symbol' => $symbol,
+            'image' => $image
         ]))->save();
     }
 }
