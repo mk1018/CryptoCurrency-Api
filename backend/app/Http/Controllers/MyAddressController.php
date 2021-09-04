@@ -7,7 +7,7 @@ use App\Services\AddressService;
 use App\Services\BlockChainService;
 use App\Http\Requests\Top\StoreRequest;
 
-class TopController extends Controller
+class MyAddressController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -29,7 +29,7 @@ class TopController extends Controller
     {
         $addresses = $this->addressService->get(\Auth::id());
         $block_chains = (new BlockChainService)->get();
-        return view('top', ['addresses' => $addresses, 'block_chains' => $block_chains]);
+        return view('myAddress', ['addresses' => $addresses, 'block_chains' => $block_chains]);
     }
 
     /**
@@ -45,8 +45,8 @@ class TopController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  App\Http\Requests\Top\StoreRequest $request
+     * @return view
      */
     public function store(StoreRequest $request)
     {

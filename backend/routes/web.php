@@ -18,5 +18,5 @@ Auth::routes();
 Route::redirect('/', 'myAddress');
 
 Route::namespace('App\Http\Controllers')->group( function () {
-    Route::apiResource('myAddress', 'TopController');
+    Route::apiResource('myAddress', 'MyAddressController');
 });

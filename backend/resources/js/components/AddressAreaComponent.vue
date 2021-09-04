@@ -29,6 +29,10 @@ export default {
     },
     bcinfo: {
       type: Object
+    },
+    csrf: {
+      type: String,
+      required: true,
     }
   },
   data() {

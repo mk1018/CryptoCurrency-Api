@@ -4,6 +4,7 @@ namespace App\Http\Requests\Top;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Rules\BlockChainCodeRule;
+use App\Rules\AddressRule;
 
 class StoreRequest extends FormRequest
 {
@@ -25,8 +26,8 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'blockchain_code' => new BlockChainCodeRule,
-            'address' => 'required|string',
+            'blockchain_code' => ['required', new BlockChainCodeRule],
+            'address' => ['required', new AddressRule],
         ];
     }
 }
