@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Addresshow') }}</title>
+    <title>{{ config('app.name', 'Cryptolest') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -25,7 +25,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Addresshow') }}
+                    {{ config('app.name', 'Cryptolest') }}
                 </a>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">

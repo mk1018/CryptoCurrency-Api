@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Addresshow'),
+    'name' => env('APP_NAME', 'Cryptolest'),
 
     /*
     |--------------------------------------------------------------------------
