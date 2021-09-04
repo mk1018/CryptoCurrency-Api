@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\AddressService;
 use App\Services\BlockChainService;
-use App\Http\Requests\Top\StoreRequest;
+use App\Http\Requests\MyAddress\StoreRequest;
 
 class MyAddressController extends Controller
 {
@@ -84,9 +84,10 @@ class MyAddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
-        //
+        $this->addressService->modify($id, $Request->toArray());
+        return $this->index();
     }
 
     /**
@@ -97,6 +98,7 @@ class MyAddressController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->addressService->destroy($id);
+        return $this->index();
     }
 }
