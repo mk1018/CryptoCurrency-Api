@@ -17,7 +17,7 @@ class PublicAddressController extends Controller
         $user = $this->userService->codeFind($user_code);
         $param = [
             'name'      => ($user) ? $user->name : "",
-            'addresses' => ($user) ? $user->getAddressInfo : []
+            'addresses' => ($user) ? $user->getPublicAddressInfo : []
         ];
         return view('publicAddress', $param);
     }

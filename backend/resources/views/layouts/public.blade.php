@@ -27,6 +27,15 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Addresshow') }}
                 </a>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">登録はこちらから～</a>
+                        </li>
+                    </ul>
+                </div>
             <div>
         </nav>
 

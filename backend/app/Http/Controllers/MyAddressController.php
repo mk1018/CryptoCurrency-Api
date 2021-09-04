@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Services\AddressService;
 use App\Services\BlockChainService;
 use App\Http\Requests\MyAddress\StoreRequest;
+use App\Http\Requests\MyAddress\UpdateRequest;
 
 class MyAddressController extends Controller
 {

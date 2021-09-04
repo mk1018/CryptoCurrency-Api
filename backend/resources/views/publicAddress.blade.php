@@ -6,6 +6,12 @@
 
   対象者がいません
 
+@elseif(count($addresses)==0)
+
+  {{$name}}
+
+  表示できるアドレスがありません
+
 @else
 
   {{$name}}

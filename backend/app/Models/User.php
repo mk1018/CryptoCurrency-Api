@@ -65,10 +65,18 @@ class User extends Authenticatable implements JWTSubject
     }
 
     /**
-     * アドレスの情報
+     * アドレスの情報（メンテ用）
      */
     public function getAddressInfo()
     {
         return $this->hasMany(Address::class);
+    }
+
+    /**
+     * アドレスの情報（公開用）
+     */
+    public function getPublicAddressInfo()
+    {
+        return $this->hasMany(Address::class)->where('display', true);
     }
 }

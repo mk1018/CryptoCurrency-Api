@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Top;
+namespace App\Http\Requests\MyAddress;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Rules\BlockChainCodeRule;
