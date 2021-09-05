@@ -2,9 +2,13 @@
 
 @section('content')
 
+<share-address-component
+  v-bind:user='@json($user)'
+></share-address-component>
+
 <add-address-component
-    v-bind:blockchains='@json($block_chains)'
-    :csrf="{{json_encode(csrf_token())}}"
+  v-bind:blockchains='@json($block_chains)'
+  :csrf="{{json_encode(csrf_token())}}"
 ></add-address-component>
 
 @foreach ($errors->all() as $error)

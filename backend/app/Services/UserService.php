@@ -22,6 +22,11 @@ class UserService extends Service
         return $this->model;
     }
 
+    public function find($id)
+    {
+        return $this->model::find($id);
+    }
+
     public function first($code)
     {
         return $this->model::where('user_code', $code)->orWhere('screen_name', $code)->first();

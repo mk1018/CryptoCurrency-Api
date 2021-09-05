@@ -24,6 +24,7 @@ Vue.component('test-component', require('./components/TestComponent.vue').defaul
 Vue.component('address-area-component', require('./components/AddressAreaComponent.vue').default);
 Vue.component('add-address-component', require('./components/AddAddressComponent.vue').default);
 Vue.component('public-address-area-component', require('./components/PublicAddressAreaComponent.vue').default);
+Vue.component('share-address-component', require('./components/ShareAddressComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

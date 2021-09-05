@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Services\UserService;
 use App\Services\AddressService;
 use App\Services\BlockChainService;
 use App\Http\Requests\MyAddress\StoreRequest;
@@ -37,7 +38,11 @@ class MyAddressController extends Controller
             $addressesArray[$val->blockchain_code][] = $val;
         }
 
-        return view('myAddress', ['addresses' => $addressesArray, 'block_chains' => $block_chains]);
+        return view('myAddress', [
+            'addresses'    => $addressesArray,
+            'block_chains' => $block_chains,
+            'user'         => (new UserService)->find(\Auth::id())
+        ]);
     }
 
     /**
