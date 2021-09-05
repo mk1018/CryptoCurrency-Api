@@ -19,6 +19,7 @@ class CreateAddressesTable extends Migration
             $table->string('blockchain_code');
             $table->string('address')->nullable();
             $table->boolean('display')->default(false);
+            $table->text('note')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

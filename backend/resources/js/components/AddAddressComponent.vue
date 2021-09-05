@@ -7,13 +7,13 @@
 
           <div class="card-body">
 
-            <form action="/myAddress" name="add_address" method="POST">
+            <form action="/myAddress" class="add_address" name="add_address" method="POST">
               <input type="hidden" name="_token" v-bind:value="csrf">
               <select class="form-select"  name="blockchain_code" aria-label="Default select example">
                 <option v-for="(chain, key) in blockchains" :key="key" v-bind:value="chain.code">{{chain.name}}</option>
               </select>
-              <input class="address-text-area" name="address" type="text" />
-              <!-- <textarea v-model="address.address" placeholder="add multiple lines"></textarea> -->
+              <input class="address-text-area" name="address" type="text" placeholder="アドレス記入欄" />
+              <textarea name="note" placeholder="メモ ※秘密鍵やパスフレーズはメモらないで><"></textarea>
               <button type="submit" class="btn btn-dark">登録する</button>
             </form>
 

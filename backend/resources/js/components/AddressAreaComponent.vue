@@ -10,6 +10,7 @@
           </div>
 
           <div v-for="(adr, key) in address" :key="key" class="card-body">
+
             <form method="post" v-bind:action="'/myAddress/'+adr.id">
               <input type="hidden" name="_method" value="PUT">
               <input type="hidden" name="_token" v-bind:value="csrf">
@@ -22,12 +23,15 @@
                   <button type="submit" class="btn btn-primary">更新する</button>
                 </div>
               </div>
+              <textarea name="note" v-bind:value="adr.note" placeholder="メモ ※秘密鍵やパスフレーズはメモらないで><"></textarea>
             </form>
+
             <form class="float-right align-self-center" method="post" v-bind:action="'/myAddress/'+address[0].id">
               <input type="hidden" name="_method" value="DELETE">
               <input type="hidden" name="_token" v-bind:value="csrf">
               <button type="submit" class="btn btn-danger">削除</button>
             </form>
+
           </div>
 
         </div>

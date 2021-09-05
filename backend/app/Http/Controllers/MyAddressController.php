@@ -94,10 +94,10 @@ class MyAddressController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $columns = [
             'address' => $request->address,
             'display' => ($request->display) ? true : false,
+            'note'    => $request->note,
         ];
 
         $this->addressService->modify($id, $columns);

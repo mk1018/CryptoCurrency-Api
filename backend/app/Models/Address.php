@@ -18,7 +18,8 @@ class Address extends Model
         'user_id',
         'blockchain_code',
         'address',
-        'display'
+        'display',
+        'note'
     ];
 
     /**

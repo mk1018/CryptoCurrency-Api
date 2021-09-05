@@ -21,3 +21,7 @@ img[name="cryptImage"]{
 .address-text-area {
     margin: 0 0 10px 0;
 }
+
+textarea{
+    width:100%;
+}
