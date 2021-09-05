@@ -28,4 +28,12 @@ class Address extends Model
     {
         return $this->hasOne(BlockChain::class, 'code', 'blockchain_code');
     }
+
+    /**
+     * ユーザーの情報取得
+     */
+    public function getUserInfo()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
 }

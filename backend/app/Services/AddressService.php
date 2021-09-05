@@ -24,10 +24,16 @@ class AddressService extends Service
 
     public function get($user_id=null)
     {
-        if ($user_id) {
-            return $this->model::where('user_id', $user_id)->get();
-        } else {
-            return $this->model::get();
+        return $this->model::when($user_id, function ($query, $user_id) {
+            return $query->where('user_id', $user_id);
+        })->get();
+    }
+
+    public function checkUserIdDelete($id)
+    {
+        $address = $this->model::find($id);
+        if ($address->getuserInfo->id == \Auth::id()) {
+            $address->delete();
         }
     }
 }

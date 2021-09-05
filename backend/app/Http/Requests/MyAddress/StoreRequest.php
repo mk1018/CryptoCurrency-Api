@@ -25,9 +25,12 @@ class StoreRequest extends FormRequest
      */
     public function rules()
     {
+
+        $blockchain_code = $this->request->get('blockchain_code');
+
         return [
             'blockchain_code' => ['required', new BlockChainCodeRule],
-            'address' => ['required', new AddressRule],
+            'address' => ['required', new AddressRule($blockchain_code)],
         ];
     }
 }

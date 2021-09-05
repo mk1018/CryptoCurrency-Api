@@ -3,7 +3,14 @@
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="card">
-          <div class="card-header">{{bcinfo.name + ' (' + bcinfo.symbol + ')' }}</div>
+          <div class="card-header">
+            {{bcinfo.name + ' (' + bcinfo.symbol + ')' }}
+            <form method="post" v-bind:action="'/myAddress/'+address.id">
+              <input type="hidden" name="_method" value="DELETE">
+              <input type="hidden" name="_token" v-bind:value="csrf">
+              <button type="submit" class="btn btn-danger">削除する</button>
+            </form>
+          </div>
 
           <div class="card-body">
             <input class="address-text-area" type="text" v-bind:value="address.address" />
