@@ -19,7 +19,8 @@ window.Vue = require('vue').default;
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('test-component', require('./components/TestComponent.vue').default);
 Vue.component('address-area-component', require('./components/AddressAreaComponent.vue').default);
 Vue.component('add-address-component', require('./components/AddAddressComponent.vue').default);
 Vue.component('public-address-area-component', require('./components/PublicAddressAreaComponent.vue').default);

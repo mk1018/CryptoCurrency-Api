@@ -2,21 +2,34 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8">
-        <div class="card">
-          <div class="card-header">
-            {{bcinfo.name + ' (' + bcinfo.symbol + ')' }}
-            <form method="post" v-bind:action="'/myAddress/'+address.id">
+        <div class="card address-area">
+
+          <div class="card-header d-flex flex-row bd-highlight">
+            <img name="cryptImage" v-bind:src="'images/'+address[0].get_block_chain_info.image" />
+            <div class="align-self-center">{{address[0].get_block_chain_info.name + ' (' + address[0].get_block_chain_info.symbol + ')' }}</div>
+          </div>
+
+          <div v-for="(adr, key) in address" :key="key" class="card-body">
+            <form method="post" v-bind:action="'/myAddress/'+adr.id">
+              <input type="hidden" name="_method" value="PUT">
+              <input type="hidden" name="_token" v-bind:value="csrf">
+              <input class="address-text-area" name="address" type="text" v-bind:value="adr.address" />
+              <div  class="col-12 clearfix row">
+                <vue-qrcode class="qrcode" v-if="adr.address" :value="adr.address" :options="option" tag="img" />
+                <div class="d-flex flex-column bd-highlight mb-3 float-right ">
+                  <input class="float-right" v-if="adr.display"  type="checkbox" name="display" data-toggle="toggle" data-on="公開" data-off="非公開" data-onstyle="outline-primary" data-offstyle="outline-secondary" checked>
+                  <input class="float-right" v-if="!adr.display" type="checkbox" name="display" data-toggle="toggle" data-on="公開" data-off="非公開" data-onstyle="outline-primary" data-offstyle="outline-secondary">
+                  <button type="submit" class="btn btn-primary">更新する</button>
+                </div>
+              </div>
+            </form>
+            <form class="float-right align-self-center" method="post" v-bind:action="'/myAddress/'+address[0].id">
               <input type="hidden" name="_method" value="DELETE">
               <input type="hidden" name="_token" v-bind:value="csrf">
-              <button type="submit" class="btn btn-danger">削除する</button>
+              <button type="submit" class="btn btn-danger">削除</button>
             </form>
           </div>
 
-          <div class="card-body">
-            <input class="address-text-area" type="text" v-bind:value="address.address" />
-            <!-- <textarea v-model="address.address" placeholder="add multiple lines"></textarea> -->
-          </div>
-          <vue-qrcode class="qrcode" v-if="address.address" :value="address.address" :options="option" tag="img" />
         </div>
       </div>
     </div>
@@ -32,10 +45,7 @@ export default {
   },
   props: {
     address: {
-      type: Object
-    },
-    bcinfo: {
-      type: Object
+      type: Array
     },
     csrf: {
       type: String,
@@ -47,7 +57,7 @@ export default {
       option: {
         errorCorrectionLevel: "M",
         maskPattern: 0,
-        margin: 5,
+        margin: 2,
         scale: 1,
         width: 500,
         color: {

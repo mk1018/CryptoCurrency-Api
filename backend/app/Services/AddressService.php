@@ -26,7 +26,7 @@ class AddressService extends Service
     {
         return $this->model::when($user_id, function ($query, $user_id) {
             return $query->where('user_id', $user_id);
-        })->get();
+        })->with('getBlockChainInfo')->get();
     }
 
     public function checkUserIdDelete($id)

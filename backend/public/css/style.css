@@ -1,7 +1,23 @@
 .qrcode {
-    width: 200px;
+    width: 150px;
 }
 
 .address-text-area {
     width: 100%;
+}
+
+img[name="cryptImage"]{
+    width: 50px;
+}
+
+.address-area .card-header {
+    display: inline;
+}
+
+.toggle.btn {
+    width: 100px !important;
+}
+
+.address-text-area {
+    margin: 0 0 10px 0;
 }

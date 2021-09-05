@@ -29,9 +29,15 @@ class MyAddressController extends Controller
      */
     public function index()
     {
-        $addresses    = $this->addressService->get(\Auth::id());
+        $addresses = $this->addressService->get(\Auth::id());
         $block_chains = $this->blockChainService->get();
-        return view('myAddress', ['addresses' => $addresses, 'block_chains' => $block_chains]);
+
+        $addressesArray = [];
+        foreach($addresses as $val) {
+            $addressesArray[$val->blockchain_code][] = $val;
+        }
+
+        return view('myAddress', ['addresses' => $addressesArray, 'block_chains' => $block_chains]);
     }
 
     /**
@@ -86,9 +92,15 @@ class MyAddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $this->addressService->modify($id, $Request->toArray());
+
+        $columns = [
+            'address' => $request->address,
+            'display' => ($request->display) ? true : false,
+        ];
+
+        $this->addressService->modify($id, $columns);
         return redirect('/myAddress');
     }
 

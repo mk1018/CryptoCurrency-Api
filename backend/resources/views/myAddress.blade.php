@@ -14,9 +14,8 @@
 @foreach($addresses as $address)
 
 <address-area-component
-    v-bind:address='@json($address)'
-    v-bind:bcinfo='@json($address->getBlockChainInfo)'
-    :csrf="{{json_encode(csrf_token())}}"
+  v-bind:address='@json($address)'
+  :csrf="{{json_encode(csrf_token())}}"
 ></address-area-component>
 
 @endforeach
