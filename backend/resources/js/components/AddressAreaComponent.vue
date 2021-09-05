@@ -14,6 +14,7 @@
             <form method="post" v-bind:action="'/myAddress/'+adr.id">
               <input type="hidden" name="_method" value="PUT">
               <input type="hidden" name="_token" v-bind:value="csrf">
+              <input type="hidden" name="blockchain_code" v-bind:value="adr.get_block_chain_info.code">
               <input class="address-text-area" name="address" type="text" v-bind:value="adr.address" />
               <div  class="col-12 clearfix row">
                 <vue-qrcode class="qrcode" v-if="adr.address" :value="adr.address" :options="option" tag="img" />

@@ -25,9 +25,12 @@ class UpdateRequest extends FormRequest
      */
     public function rules()
     {
+        $blockchain_code = $this->request->get('blockchain_code');
+
         return [
-            'blockchain_code' => new BlockChainCodeRule,
-            'address' => new AddressRule,
+            'blockchain_code' => ['required', new BlockChainCodeRule],
+            'address' => new AddressRule($blockchain_code),
+            'note' => 'string'
         ];
     }
 }

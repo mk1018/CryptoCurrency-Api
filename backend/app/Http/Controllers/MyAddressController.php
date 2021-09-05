@@ -92,15 +92,10 @@ class MyAddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
-        $columns = [
-            'address' => $request->address,
-            'display' => ($request->display) ? true : false,
-            'note'    => $request->note,
-        ];
-
-        $this->addressService->modify($id, $columns);
+        $request->offsetset('display', ($request->display) ? true : false);
+        $this->addressService->checkLoginIdModify($id, $request->toArray());
         return redirect('/myAddress');
     }
 
@@ -112,7 +107,7 @@ class MyAddressController extends Controller
      */
     public function destroy($id)
     {
-        $this->addressService->checkUserIdDelete($id);
+        $this->addressService->checkLoginIdDelete($id);
         return redirect('/myAddress');
     }
 }
